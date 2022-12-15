@@ -1,0 +1,43 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: latest
+    commands:
+      - echo Installing app dependencies
+      - curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/kubectl
+      - chmod +x ./kubectl
+      - mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
+      - echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
+      - source ~/.bashrc
+      - yum install sed
+  pre_build:
+    commands:
+      - echo Entered the pre_build phase
+      - echo Setting Variables
+      - COMMIT_HASH=$ENV-$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
+      - echo $COMMIT_HASH
+      - REPLACE_COMMAND=s/---TAG---/$COMMIT_HASH/g
+      - echo $REPLACE_COMMAND
+      - echo Logging in to Amazon ECR
+      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      - echo Logging in to Amazon EKS
+      - aws eks --region $AWS_DEFAULT_REGION update-kubeconfig --name $AWS_CLUSTER_NAME
+  build:
+    commands:
+      - echo Entered the build phase
+      - echo Building the Docker image
+      - docker build -f config/Docker/$ENV.Dockerfile -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$COMMIT_HASH .
+  post_build:
+    commands:
+      - echo Pushing the Docker image
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$COMMIT_HASH
+      - echo List directory
+      - ls -la
+      - echo Replacing --TAG-- with latest generated build Tag in deployment.yaml
+      - sed -i $REPLACE_COMMAND config/infra/k8s/portal-depl.yaml
+      - echo Output of deployment file
+      - cat config/infra/k8s/portal-depl.yaml
+      - echo Push the latest image to cluster
+      - kubectl apply -f config/infra/k8s
