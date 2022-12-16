@@ -40,6 +40,7 @@ const TableComponent: FC<ITableComponentProps> = ({
   const { items, requestSort, getClassNamesFor } = useSortableData(dummyDataToShow);
   const onCurrentPageItems = dataPagination(items, currentPage, perPage);
   const { selectTable, SelectAllCheck } = useSelectTable(onCurrentPageItems);
+  const [ showInput, setShowInput ] = useState(false)
 
   // For Opening Modals on Click on certain col of any row.
   const handleValue = (data: any, value: any) => {
@@ -75,6 +76,13 @@ const TableComponent: FC<ITableComponentProps> = ({
         </tr>
       </thead>
       <tbody>
+        {!showInput && 
+        <tr >
+          <td><input id='id 1' size={10}/></td>
+          <td><input id='id 1' size={10}/></td>
+          <td><input id='id 1' size={10}/></td>
+        </tr>
+        }
         {dummyDataToShow?.map((item: any, index: number) => (
           <tr key={index}>
             {/* <th scope='row'>
@@ -143,6 +151,22 @@ const TableComponent: FC<ITableComponentProps> = ({
                         borderRadius: '20px',
                         padding: '6px 8px',
                         color: item[keys[value]] === 'Active' ? '#ffff' : '#323232',
+                        boxSizing: 'border-box',
+                        textAlign: 'center',
+                      }}>
+                      {item[keys[value]]}
+                    </div>
+                  </td>
+                );
+              } else if (keys[value] === 'association') { //my work
+                return (
+                  <td key={index + value} style={{ minWidth: '120px' }} onClick={() => handleValue(item, value)}>
+                    <div
+                      style={{
+                        backgroundColor: item[keys[value]] === 'Association' ? '#46BCAA' : '#E7E7E7',
+                        borderRadius: '20px',
+                        padding: '6px 8px',
+                        color: item[keys[value]] === 'Association' ? '#ffff' : '#323232',
                         boxSizing: 'border-box',
                         textAlign: 'center',
                       }}>

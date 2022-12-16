@@ -7,7 +7,8 @@ import UserManagement from '../theme/assets/img/portalTable/carbon_id-management
 import HandCart from '../theme/assets/img/portalTable/handcart-white.png';
 import Products from '../theme/assets/img/portalTable/products white.png';
 import QrCode from '../theme/assets/img/portalTable/qrscan.png';
-import Management from '../theme/assets/img/portalTable/management.png'
+import Management from '../theme/assets/img/portalTable/management.png';
+import LogicManagement from '../theme/assets/img/portalTable/createprocessWhite.png';
 
 export const homeMenu = {
 	intro: { id: 'intro', text: 'Intro', path: '#intro', icon: 'Vrpano', subMenu: null },
@@ -328,23 +329,35 @@ export const zone = {
 	},
 };
 
-export const managementMenu = {
-	userManagement: {
-		id: 'userManagement',
-		text: 'User Management',
-		path: 'user-management/UserManagement',
-		src: UserManagement,
-	},
-};
-
 export const management = {
 	processManagement: {
 	id: 'management',
-	text: 'management',
+	text: 'Management',
 	path: 'management',
-	icon: 'check_box_outline_blank',
 	src: Management,
+	subMenu: {
+		processManagement: {
+			id: 'management',
+			text: 'Process List',
+			path: 'management',
+			icon: 'check_box_outline_blank',
+			src: Management,
+		},
+		userManagement: {
+			id: 'userManagement',
+			text: 'User Management',
+			path: 'management/UserManagement',
+			src: UserManagement,
+			},
+		logicManagement: {
+				id: 'logicManagement',
+				text: 'Logic Management',
+				path: 'management/LogicManagement',
+				src: LogicManagement,
+				},
+		},
 	},
+	
 };
 
 
