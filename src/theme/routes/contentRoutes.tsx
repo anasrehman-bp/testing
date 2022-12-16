@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { dashboardMenu, layoutMenu, zone, managementMenu, settingMenu, management } from '../menu';
+import { dashboardMenu, layoutMenu, zone, settingMenu, management } from '../menu';
 // import Login from '../pages/presentation/auth/Login';
 
 const LANDING = {
@@ -27,12 +27,10 @@ const PAGE_LAYOUTS = {
 	// MINIMIZE_ASIDE: lazy(() => import('../pages/presentation/aside-types/MinimizeAsidePage')),
 };
 
-const MANAGEMENT_LAYOUTS = {
-	USER_MANAGEMENT: lazy(() => import('../pages/presentation/userManagement/UserManagement')),
-};
-
 const PROCESS_LAYOUTS = {
 	MANAGEMENT: lazy(() => import('../pages/presentation/process-managment/processManagment')),
+	USER_MANAGEMENT: lazy(() => import('../pages/presentation/userManagement/UserManagement')),
+	LOGIC_MANAGEMENT: lazy(() => import('../pages/presentation/logicManagement/LogicManagement')),
 }
 
 const presentation = [
@@ -153,16 +151,23 @@ const presentation = [
 	// },
 	// User Management
 	{
-		path: managementMenu.userManagement.path,
-		element: <MANAGEMENT_LAYOUTS.USER_MANAGEMENT />,
-		exact: true,
-	},
-	{
 		path: management.processManagement.path,
 		element: <PROCESS_LAYOUTS.MANAGEMENT />,
 		exact: true,
 	},
+
+	{
+		path: management.processManagement.subMenu.userManagement.path,
+		element: <PROCESS_LAYOUTS.USER_MANAGEMENT />,
+		exact: true,
+	},
+	{
+		path: management.processManagement.subMenu.logicManagement.path,
+		element: <PROCESS_LAYOUTS.LOGIC_MANAGEMENT />,
+		exact: true,
+	},
 ];
+
 const contents = [...presentation];
 
 export default contents;

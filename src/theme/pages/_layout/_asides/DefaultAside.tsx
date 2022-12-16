@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Brand from '../../../layout/Brand/Brand';
 import Navigation, { NavigationLine } from '../../../layout/Navigation/Navigation';
 import User from '../../../layout/User/User';
-import { dashboardMenu, layoutMenu, management, managementMenu } from '../../../menu';
+import { dashboardMenu, layoutMenu, management } from '../../../menu';
 import ThemeContext from '../../../contexts/themeContext';
 import { menuOptions, analyticsOptions } from "../../../menu";
 
@@ -32,7 +32,7 @@ const DefaultAside = () => {
 					<Navigation menu={menuOptions} id="aside-demo-pages" />
 					<NavigationLine />
 					<Navigation menu={analyticsOptions} id="aside-menu" />
-					<Navigation menu={managementMenu} id="aside-management" />
+					{/* <Navigation menu={managementMenu} id="aside-management" /> */}
 					<Navigation menu={management} id="aside-management" />
 					{/* <NavigationLine />
 						<nav>

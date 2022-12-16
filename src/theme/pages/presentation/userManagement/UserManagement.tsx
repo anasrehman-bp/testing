@@ -18,7 +18,7 @@ import Dropdown, {
 } from '../../../components/bootstrap/Dropdown';
 // import CommonTableRow from '../../_common/CommonTableRow';
 // import Popovers from '../../../components/bootstrap/Popovers';
-import { managementMenu } from '../../../menu';
+import { management } from '../../../menu';
 import data from '../../../common/data/dummyProductData';
 import PaginationButtons, {
 	dataPagination,
@@ -247,7 +247,7 @@ const UserManagement = () => {
 
 	return (
 		<>
-			<PageWrapper title={managementMenu.userManagement.text}>
+			<PageWrapper title={management.processManagement.subMenu.userManagement.text}>
 				<Page>
 					<Card stretch data-tour='list'>
 						<CardHeader>
