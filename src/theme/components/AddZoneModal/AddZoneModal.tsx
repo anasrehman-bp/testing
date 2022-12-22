@@ -19,7 +19,7 @@ const AddZoneModal: FC<IAddZoneModalProps> = (props) => {
     console.log(event.target.value);
   }
   return (
-    <Modal {...props} size='sm' aria-labelledby='contained-modal-title-vcenter' centered='true'>
+    <Modal {...props} size='sm' aria-labelledby='contained-modal-title-vcenter' centered='true' >
       <ModalHeader>
         {/* <ModalTitle id='contained-modal-title-vcenter'>Add Zone</ModalTitle> */}
         <ModalTitle id='contained-modal-title-vcenter'>Mask Input</ModalTitle>
