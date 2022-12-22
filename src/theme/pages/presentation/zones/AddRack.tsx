@@ -81,6 +81,7 @@ const AddRack = () => {
             </Card>
           ) : (
             <>
+              <h4 style={{ letterSpacing: '4px' }}>WALL</h4>
               {Object.values({ values }).map((i: any) => {
                 if (
                   i.rows === 'row' &&
