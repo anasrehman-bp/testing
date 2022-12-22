@@ -327,6 +327,11 @@ export const zone = {
 		text: 'Edit Zone',
 		path: 'zones/editZone',
 	},
+	addRack: {
+		id: 'addRack',
+		text: 'Add Rack',
+		path: 'zones/addRack'
+	}
 };
 
 export const management = {

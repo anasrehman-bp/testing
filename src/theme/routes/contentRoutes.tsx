@@ -18,6 +18,7 @@ const PAGE_LAYOUTS = {
 	ZONES: lazy(() => import('../pages/presentation/zones/Zones')),
 	ADD_ZONE: lazy(() => import('../pages/presentation/zones/AddZone')),
 	EDIT_ZONE: lazy(() => import('../pages/presentation/zones/EditZone')),
+	ADD_RACK: lazy(() => import('../pages/presentation/zones/AddRack')),
 	BRANDS: lazy(() => import('../pages/presentation/brands/Brands')),
 	RETAILER: lazy(() => import('../pages/presentation/retailer/Retailer')),
 	BARCODE: lazy(() => import('../pages/presentation/barCode/BarCode')),
@@ -86,6 +87,11 @@ const presentation = [
 	{
 		path: zone.editZone.path,
 		element: <PAGE_LAYOUTS.EDIT_ZONE />,
+		exact: true,
+	},
+	{
+		path: zone.addRack.path,
+		element: <PAGE_LAYOUTS.ADD_RACK />,
 		exact: true,
 	},
 	{

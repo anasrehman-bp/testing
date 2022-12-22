@@ -5,4 +5,4 @@
 **/src/assets/**/*
 **/src/components/icon/**/*
 #src/pages/documentation
-**/src/theme/**/*
+# **/src/theme/**/*

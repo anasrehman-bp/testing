@@ -19,7 +19,7 @@ interface IWareHouseModalProps {
 
 const AddWareHouseModal: FC<IWareHouseModalProps> = (props) => {
     return (
-        <Modal {...props} size='lg' aria-labelledby='contained-modal-title-vcenter' centered='true'>
+        <Modal {...props} size='lg' aria-labelledby='contained-modal-title-vcenter' centered='true' >
             <ModalHeader className='mt-2'>
                 <ModalTitle id='contained-modal-title-vcenter'>Add Warehouse</ModalTitle>
                 <div className='position-relative align-items-center' style={{ background: '#FEEEE9', width: '40px', height: '40px', borderRadius: '10px' }}>

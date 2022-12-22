@@ -1,0 +1,49 @@
+.modal {
+    width: 450px;
+    position: fixed;
+    left: 800px;
+}
+.columnShelves {
+    display: flex;
+    justify-content: space-around;
+    padding-left: 4rem;
+
+}
+.text{
+    padding-left: 4rem;
+}
+.modalBody{
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+    font-weight: 400;
+    color: #666666
+}
+.modalColumnFirst{
+    display:list-item;
+    justify-content: space-around;
+    padding-left: 6.14rem;
+    
+}
+.modalColumnSecond{
+    display:list-item;
+    justify-content: space-around;
+
+    
+    padding-left: 3.5rem;
+    
+}
+.elementsFirst{
+    padding: 1.18rem 0rem 1.18rem 0rem;
+}
+.elementsSecond{
+    padding: 1.18rem 0rem 1.18rem 0rem;
+}
+.shelves{
+    padding: 1.18rem 0rem 1.18rem 0rem;
+}
+.input {
+    width: 65px;
+    font-weight: 400;
+    color: #666666
+}
