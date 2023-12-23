@@ -14,7 +14,7 @@ export const homeMenu = {
 	intro: { id: 'intro', text: 'Intro', path: '#intro', icon: 'Vrpano', subMenu: null },
 	bootstrap: {
 		id: 'bootstrap',
-		text: 'Bootstrap Components',
+		text: 'Bootstrap Componensssssts',
 		path: '#bootstrap',
 		icon: 'BootstrapFill',
 		subMenu: null,
